@@ -3,7 +3,10 @@ import mill.scalalib._
 
 object functionalmusic extends ScalaModule {
 
-  def scalaVersion = "2.13.10"
+  def scalacOptions = Seq(
+    "-Xfatal-warnings"
+  )
+  def scalaVersion  = "2.13.10"
 
   object test extends Tests with TestModule.Munit {
     def ivyDeps = Agg(
@@ -11,4 +14,3 @@ object functionalmusic extends ScalaModule {
     )
   }
 }
-
