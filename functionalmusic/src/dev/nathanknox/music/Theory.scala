@@ -3,15 +3,17 @@ package dev.nathanknox.music
 import dev.nathanknox.music.Interval.MinorSecond
 import dev.nathanknox.music.Interval.PerfectUnison
 
+final case class NoteName(letter: NoteLetter, quality: NoteQuality)
+
 sealed trait NoteLetter
 object NoteLetter {
+  case object A extends NoteLetter
+  case object B extends NoteLetter
   case object C extends NoteLetter
   case object D extends NoteLetter
   case object E extends NoteLetter
   case object F extends NoteLetter
   case object G extends NoteLetter
-  case object A extends NoteLetter
-  case object B extends NoteLetter
 }
 
 sealed trait NoteQuality
@@ -23,7 +25,7 @@ object NoteQuality {
 
 sealed trait Frequency
 
-final case class Note(letter: NoteLetter, quality: NoteQuality, frequency: Frequency)
+final case class Note(name: NoteName, frequency: Frequency)
 
 // final case class Scale(notes: Set[Interval])
 // def
